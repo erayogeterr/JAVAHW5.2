@@ -2,7 +2,6 @@ package com.kodlama.io.SpringHW.webAPI.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,35 +20,41 @@ public class ProgrammingLanguageTechnologyController {
 
 	private ProgrammingLanguageTechnologyService programmingLanguageTechnologyService;
 
-	@Autowired
-	public ProgrammingLanguageTechnologyController(ProgrammingLanguageTechnologyService programmingLanguageTechnologyService) {
+	public ProgrammingLanguageTechnologyController(
+			ProgrammingLanguageTechnologyService programmingLanguageTechnologyService) {
 		this.programmingLanguageTechnologyService = programmingLanguageTechnologyService;
 	}
-	
+
 	@GetMapping
 	public List<ProgrammingLanguageTechnology> getAllProgrammingLanguagesTechnology() {
 		return programmingLanguageTechnologyService.getAllProgrammingLanguagesTechnology();
 	}
-	
+
 	@GetMapping("{id}")
-	public ProgrammingLanguageTechnology getProgrammingLanguageTechnologyById(@PathVariable("id") Long programmingLanguageTechnologyId) throws Exception {
-		return programmingLanguageTechnologyService.getProgrammingLanguageTechnologyById(programmingLanguageTechnologyId);
+	public ProgrammingLanguageTechnology getProgrammingLanguageTechnologyById(
+			@PathVariable("id") Long programmingLanguageTechnologyId) throws Exception {
+		return programmingLanguageTechnologyService
+				.getProgrammingLanguageTechnologyById(programmingLanguageTechnologyId);
 	}
-	
+
 	@PostMapping
-	public ProgrammingLanguageTechnology saveProgrammingLanguageTechnology(@RequestBody ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception{
+	public ProgrammingLanguageTechnology saveProgrammingLanguageTechnology(
+			@RequestBody ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
 		return programmingLanguageTechnologyService.saveProgrammingLanguageTechnology(programmingLanguageTechnology);
 	}
-	
+
 	@PutMapping("{id}")
-	public ProgrammingLanguageTechnology updateProgrammingLanguageTechnology(@PathVariable("id") Long programmingLanguageTechnologyId, @RequestBody ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
-		return programmingLanguageTechnologyService.updateProgrammingLanguageTechnology(programmingLanguageTechnology, programmingLanguageTechnologyId);
+	public ProgrammingLanguageTechnology updateProgrammingLanguageTechnology(
+			@PathVariable("id") Long programmingLanguageTechnologyId,
+			@RequestBody ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
+		return programmingLanguageTechnologyService.updateProgrammingLanguageTechnology(programmingLanguageTechnology,
+				programmingLanguageTechnologyId);
 	}
-	
+
 	@DeleteMapping("{id}")
-	public void deleteProgrammingLanguageTechnology(@PathVariable("id") Long programmingLanguageTechnologyId) throws Exception {
+	public void deleteProgrammingLanguageTechnology(@PathVariable("id") Long programmingLanguageTechnologyId)
+			throws Exception {
 		programmingLanguageTechnologyService.deleteProgrammingLanguageTechnology(programmingLanguageTechnologyId);
 	}
-	
-	
+
 }

@@ -1,7 +1,5 @@
 package com.kodlama.io.SpringHW.entities.concrete;
 
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +15,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Data
 @Getter
 @Setter
@@ -25,19 +22,18 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "technology")
 @Entity
-public class ProgrammingLanguageTechnology  {
-	
+public class ProgrammingLanguageTechnology {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id" ,nullable = false)
+	@Column(name = "id", nullable = false)
 	private Long id;
-	
+
 	@Column(name = "name")
 	private String name;
-	
+
 	@ManyToOne
-	@JoinColumn(name="programming_language_id")
+	@JoinColumn(name = "programming_language_id")
 	private ProgrammingLanguage programmingLanguage;
-	
-	
+
 }

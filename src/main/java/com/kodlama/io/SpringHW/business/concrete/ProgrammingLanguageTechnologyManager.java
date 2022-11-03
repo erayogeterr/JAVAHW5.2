@@ -10,11 +10,12 @@ import com.kodlama.io.SpringHW.dataAccess.abstracts.ProgrammingLanguageTechnolog
 import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguageTechnology;
 
 @Service
-public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguageTechnologyService{
+public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguageTechnologyService {
 
 	private ProgrammingLanguageTechnologyRepository programmingLanguageTechnologyRepository;
-	
-	public ProgrammingLanguageTechnologyManager(ProgrammingLanguageTechnologyRepository programmingLanguageTechnologyRepository) {
+
+	public ProgrammingLanguageTechnologyManager(
+			ProgrammingLanguageTechnologyRepository programmingLanguageTechnologyRepository) {
 		this.programmingLanguageTechnologyRepository = programmingLanguageTechnologyRepository;
 	}
 
@@ -24,16 +25,19 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	}
 
 	@Override
-	public ProgrammingLanguageTechnology getProgrammingLanguageTechnologyById(Long programmingLanguageTechnologyId)throws Exception {
-		ProgrammingLanguageTechnology programmingLanguageTechnology = programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId).get();
-		if(programmingLanguageTechnology != null) {
-		return programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId).get();
+	public ProgrammingLanguageTechnology getProgrammingLanguageTechnologyById(Long programmingLanguageTechnologyId)
+			throws Exception {
+		ProgrammingLanguageTechnology programmingLanguageTechnology = programmingLanguageTechnologyRepository
+				.findById(programmingLanguageTechnologyId).get();
+		if (programmingLanguageTechnology != null) {
+			return programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId).get();
 		}
 		throw new Exception("There is no programming language technology registered to this id number.");
 	}
 
 	@Override
-	public ProgrammingLanguageTechnology saveProgrammingLanguageTechnology(ProgrammingLanguageTechnology programmingLanguageTechnology)throws Exception {
+	public ProgrammingLanguageTechnology saveProgrammingLanguageTechnology(
+			ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
 		if (isNameBlankAndEmpty(programmingLanguageTechnology)) {
 			throw new Exception("Programming Language Technology Cannot be Empty.");
 		} else if (isNameExist(programmingLanguageTechnology)) {
@@ -43,10 +47,12 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	}
 
 	@Override
-	public ProgrammingLanguageTechnology updateProgrammingLanguageTechnology(ProgrammingLanguageTechnology programmingLanguage,	Long programmingLanguageId) throws Exception {
-		Optional<ProgrammingLanguageTechnology> programmingLanguageTechnology = programmingLanguageTechnologyRepository.findById(programmingLanguageId);
-		
-		if(programmingLanguageTechnology.isPresent()) {
+	public ProgrammingLanguageTechnology updateProgrammingLanguageTechnology(
+			ProgrammingLanguageTechnology programmingLanguage, Long programmingLanguageId) throws Exception {
+		Optional<ProgrammingLanguageTechnology> programmingLanguageTechnology = programmingLanguageTechnologyRepository
+				.findById(programmingLanguageId);
+
+		if (programmingLanguageTechnology.isPresent()) {
 			ProgrammingLanguageTechnology toUpdate = programmingLanguageTechnology.get();
 			toUpdate.setName(programmingLanguage.getName());
 			programmingLanguageTechnologyRepository.save(toUpdate);
@@ -58,13 +64,13 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	@Override
 	public void deleteProgrammingLanguageTechnology(Long programmingLanguageTechnologyId) throws Exception {
 		this.programmingLanguageTechnologyRepository.deleteById(programmingLanguageTechnologyId);
-		
+
 	}
 
 	@Override
 	public boolean isNameExist(ProgrammingLanguageTechnology programmingLanguageTechnology) {
-		for(ProgrammingLanguageTechnology languageTechnology : getAllProgrammingLanguagesTechnology()) {
-			if(languageTechnology.getName().equalsIgnoreCase(programmingLanguageTechnology.getName())) {
+		for (ProgrammingLanguageTechnology languageTechnology : getAllProgrammingLanguagesTechnology()) {
+			if (languageTechnology.getName().equalsIgnoreCase(programmingLanguageTechnology.getName())) {
 				return true;
 			}
 		}

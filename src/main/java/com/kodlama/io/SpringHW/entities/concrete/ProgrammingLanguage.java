@@ -25,13 +25,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @Table(name = "languages")
 @Entity
-public class ProgrammingLanguage   {
+public class ProgrammingLanguage {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id" , nullable = false)
+	@Column(name = "id", nullable = false)
 	private Long id;
-	
+
 	@Column(name = "name")
 	private String name;
 
