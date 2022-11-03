@@ -24,10 +24,10 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	}
 
 	@Override
-	public ProgrammingLanguageTechnology getProgrammingLanguageTechnologyById(Long programmingLanguageId)throws Exception {
-		ProgrammingLanguageTechnology programmingLanguageTechnology = programmingLanguageTechnologyRepository.findById(programmingLanguageId).get();
+	public ProgrammingLanguageTechnology getProgrammingLanguageTechnologyById(Long programmingLanguageTechnologyId)throws Exception {
+		ProgrammingLanguageTechnology programmingLanguageTechnology = programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId).get();
 		if(programmingLanguageTechnology != null) {
-		return programmingLanguageTechnologyRepository.findById(programmingLanguageId).get();
+		return programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId).get();
 		}
 		throw new Exception("There is no programming language technology registered to this id number.");
 	}

@@ -1,7 +1,6 @@
 package com.kodlama.io.SpringHW.entities.concrete;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,10 +28,7 @@ public class ProgrammingLanguage {
 	
 	@Column(name = "name")
 	private String name;
-	
-	//@OneToMany(mappedBy = "programmingLanguage")
-	//List<ProgrammingLanguageTechnology> programmingLanguageTechnologies;
-	
-	@OneToMany(mappedBy = "programingLanguage")
-    Set<ProgrammingLanguageTechnology> technologies;
+
+	@OneToMany(mappedBy = "programmingLanguage")
+	private List<ProgrammingLanguageTechnology> technologies;
 }

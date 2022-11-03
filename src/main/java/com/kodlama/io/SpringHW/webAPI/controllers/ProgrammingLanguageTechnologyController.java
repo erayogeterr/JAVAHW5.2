@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kodlama.io.SpringHW.business.abstracts.ProgrammingLanguageTechnologyService;
-import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguage;
 import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguageTechnology;
 
 @RestController

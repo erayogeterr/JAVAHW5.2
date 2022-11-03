@@ -2,7 +2,6 @@ package com.kodlama.io.SpringHW.business.abstracts;
 
 import java.util.List;
 
-import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguage;
 import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguageTechnology;
 
 public interface ProgrammingLanguageTechnologyService {
