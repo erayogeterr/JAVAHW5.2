@@ -10,16 +10,22 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "languages")
 @Entity
-public class ProgrammingLanguage {
+public class ProgrammingLanguage   {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +35,7 @@ public class ProgrammingLanguage {
 	@Column(name = "name")
 	private String name;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "programmingLanguage")
 	private List<ProgrammingLanguageTechnology> technologies;
 }
