@@ -1,6 +1,7 @@
 package com.kodlama.io.SpringHW.entities.concrete;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,12 +24,15 @@ public class ProgrammingLanguage {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id" , nullable = false)
 	private Long id;
 	
 	@Column(name = "name")
 	private String name;
 	
-	@OneToMany(mappedBy = "programmingLanguage")
-	List<ProgrammingLanguageTechnology> programmingLanguageTechnologies;
+	//@OneToMany(mappedBy = "programmingLanguage")
+	//List<ProgrammingLanguageTechnology> programmingLanguageTechnologies;
+	
+	@OneToMany(mappedBy = "programingLanguage")
+    Set<ProgrammingLanguageTechnology> technologies;
 }

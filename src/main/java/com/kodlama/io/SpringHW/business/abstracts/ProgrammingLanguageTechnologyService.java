@@ -1,0 +1,18 @@
+package com.kodlama.io.SpringHW.business.abstracts;
+
+import java.util.List;
+
+import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguage;
+import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguageTechnology;
+
+public interface ProgrammingLanguageTechnologyService {
+	
+	List<ProgrammingLanguageTechnology> getAllProgrammingLanguagesTechnology();
+	ProgrammingLanguageTechnology getProgrammingLanguageTechnologyById(Long programmingLanguageTechnologyId) throws Exception;
+	ProgrammingLanguageTechnology saveProgrammingLanguageTechnology(ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception;
+	ProgrammingLanguageTechnology updateProgrammingLanguageTechnology(ProgrammingLanguageTechnology programmingLanguageTechnology, Long programmingLanguageTechnologyId) throws Exception;
+	void deleteProgrammingLanguageTechnology (Long programmingLanguageTechnologyId) throws Exception;
+
+	boolean isNameExist(ProgrammingLanguageTechnology programmingLanguage);
+	boolean isNameBlankAndEmpty(ProgrammingLanguageTechnology programmingLanguage);
+}
