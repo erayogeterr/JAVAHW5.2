@@ -25,8 +25,8 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 
 	@Override
 	public ProgrammingLanguage getProgrammingLanguageById(Long programmingLanguageId) throws Exception {
-		ProgrammingLanguage programmingLanguage = programmingLanguageRepository.findById(programmingLanguageId).get();
-		if (programmingLanguage != null) {
+		Optional<ProgrammingLanguage> programmingLanguage = programmingLanguageRepository.findById(programmingLanguageId);
+		if (programmingLanguage.isPresent()) {
 			return programmingLanguageRepository.findById(programmingLanguageId).get();
 		}
 		throw new Exception("There is no programming language registered to this id number.");
@@ -58,10 +58,10 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	}
 
 	@Override
-	public void deleteProgrammingLanguage(Long programmingLanguageId) throws Exception {
-		ProgrammingLanguage programmingLanguage = programmingLanguageRepository.findById(programmingLanguageId).get();
-		if (programmingLanguage != null) {
-			this.programmingLanguageRepository.deleteById(programmingLanguageId);
+	public ProgrammingLanguage deleteProgrammingLanguage(Long programmingLanguageId) throws Exception {
+		Optional<ProgrammingLanguage> programmingLanguage = programmingLanguageRepository.findById(programmingLanguageId);
+		if (programmingLanguage.isPresent()) {
+			programmingLanguageRepository.deleteById(programmingLanguageId);
 		}
 		throw new Exception("There is no programming language registered to this id number.");
 	}

@@ -10,7 +10,7 @@ public interface ProgrammingLanguageService {
 	ProgrammingLanguage getProgrammingLanguageById(Long programmingLanguageId) throws Exception;
 	ProgrammingLanguage saveProgrammingLanguage(ProgrammingLanguage programmingLanguage) throws Exception;
 	ProgrammingLanguage updateProgrammingLanguage(ProgrammingLanguage programmingLanguage, Long programmingLanguageId) throws Exception;
-	void deleteProgrammingLanguage(Long programmingLanguageId) throws Exception;
+	ProgrammingLanguage deleteProgrammingLanguage(Long programmingLanguageId) throws Exception;
 	
 	boolean isNameExist(ProgrammingLanguage programmingLanguage);
 	boolean isNameBlankAndEmpty(ProgrammingLanguage programmingLanguage);

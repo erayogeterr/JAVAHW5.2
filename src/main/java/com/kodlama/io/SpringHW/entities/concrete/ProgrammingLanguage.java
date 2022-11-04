@@ -2,6 +2,7 @@ package com.kodlama.io.SpringHW.entities.concrete;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,6 +37,6 @@ public class ProgrammingLanguage {
 	private String name;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "programmingLanguage")
+	@OneToMany(mappedBy = "programmingLanguage", cascade = CascadeType.ALL)
 	private List<ProgrammingLanguageTechnology> technologies;
 }

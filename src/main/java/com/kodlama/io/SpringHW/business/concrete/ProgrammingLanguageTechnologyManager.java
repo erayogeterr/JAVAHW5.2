@@ -27,9 +27,9 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	@Override
 	public ProgrammingLanguageTechnology getProgrammingLanguageTechnologyById(Long programmingLanguageTechnologyId)
 			throws Exception {
-		ProgrammingLanguageTechnology programmingLanguageTechnology = programmingLanguageTechnologyRepository
-				.findById(programmingLanguageTechnologyId).get();
-		if (programmingLanguageTechnology != null) {
+		Optional<ProgrammingLanguageTechnology> programmingLanguageTechnology = programmingLanguageTechnologyRepository
+				.findById(programmingLanguageTechnologyId);
+		if (programmingLanguageTechnology.isPresent()) {
 			return programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId).get();
 		}
 		throw new Exception("There is no programming language technology registered to this id number.");
@@ -62,9 +62,12 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	}
 
 	@Override
-	public void deleteProgrammingLanguageTechnology(Long programmingLanguageTechnologyId) throws Exception {
-		this.programmingLanguageTechnologyRepository.deleteById(programmingLanguageTechnologyId);
-
+	public ProgrammingLanguageTechnology deleteProgrammingLanguageTechnology(Long programmingLanguageTechnologyId) throws Exception {
+		
+		Optional<ProgrammingLanguageTechnology> programmingLanguage = programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId);
+		if (programmingLanguage.isPresent()) {
+			programmingLanguageTechnologyRepository.deleteById(programmingLanguageTechnologyId);		}
+		throw new Exception("There is no programming language registered to this id number.");
 	}
 
 	@Override
