@@ -27,12 +27,12 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	@Override
 	public ProgrammingLanguageTechnology getProgrammingLanguageTechnologyById(Long programmingLanguageTechnologyId)
 			throws Exception {
-		Optional<ProgrammingLanguageTechnology> programmingLanguageTechnology = programmingLanguageTechnologyRepository
-				.findById(programmingLanguageTechnologyId);
+		Optional<ProgrammingLanguageTechnology> programmingLanguageTechnology = programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId);
 		if (programmingLanguageTechnology.isPresent()) {
 			return programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId).get();
+		} else {
+			throw new Exception("There is no programming language technology registered to this id number.");
 		}
-		throw new Exception("There is no programming language technology registered to this id number.");
 	}
 
 	@Override
@@ -58,16 +58,19 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 			programmingLanguageTechnologyRepository.save(toUpdate);
 			return toUpdate;
 		}
-		throw new Exception("There is no programming language technology registered to this id number.");
+		else {
+			throw new Exception("There is no programming language technology registered to this id number.");
+		}
 	}
 
 	@Override
-	public ProgrammingLanguageTechnology deleteProgrammingLanguageTechnology(Long programmingLanguageTechnologyId) throws Exception {
-		
+	public void deleteProgrammingLanguageTechnology(Long programmingLanguageTechnologyId) throws Exception {
 		Optional<ProgrammingLanguageTechnology> programmingLanguage = programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId);
 		if (programmingLanguage.isPresent()) {
-			programmingLanguageTechnologyRepository.deleteById(programmingLanguageTechnologyId);		}
-		throw new Exception("There is no programming language registered to this id number.");
+			programmingLanguageTechnologyRepository.deleteById(programmingLanguageTechnologyId);
+		} else { 
+		 throw new Exception("There is no programming language registered to this id number.");
+		}
 	}
 
 	@Override

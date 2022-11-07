@@ -52,8 +52,7 @@ public class ProgrammingLanguageTechnologyController {
 	}
 
 	@DeleteMapping("{id}")
-	public void deleteProgrammingLanguageTechnology(@PathVariable("id") Long programmingLanguageTechnologyId)
-			throws Exception {
+	public void deleteProgrammingLanguageTechnology(@PathVariable("id") Long programmingLanguageTechnologyId) throws Exception {
 		programmingLanguageTechnologyService.deleteProgrammingLanguageTechnology(programmingLanguageTechnologyId);
 	}
 
