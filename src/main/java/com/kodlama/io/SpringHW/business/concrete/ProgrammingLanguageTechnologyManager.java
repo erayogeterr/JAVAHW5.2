@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.kodlama.io.SpringHW.business.abstracts.ProgrammingLanguageTechnologyService;
 import com.kodlama.io.SpringHW.dataAccess.abstracts.ProgrammingLanguageTechnologyRepository;
 import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguageTechnology;
+import com.kodlama.io.SpringHW.exception.IdNotFoundException;
 
 @Service
 public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguageTechnologyService {
@@ -31,7 +32,7 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 		if (programmingLanguageTechnology.isPresent()) {
 			return programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId).get();
 		} else {
-			throw new Exception("There is no programming language technology registered to this id number.");
+			throw new IdNotFoundException("There is no programming language registered to this id number.");
 		}
 	}
 
@@ -59,7 +60,7 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 			return toUpdate;
 		}
 		else {
-			throw new Exception("There is no programming language technology registered to this id number.");
+			throw new IdNotFoundException("There is no programming language registered to this id number.");
 		}
 	}
 
@@ -69,7 +70,7 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 		if (programmingLanguage.isPresent()) {
 			programmingLanguageTechnologyRepository.deleteById(programmingLanguageTechnologyId);
 		} else { 
-		 throw new Exception("There is no programming language registered to this id number.");
+			throw new IdNotFoundException("There is no programming language registered to this id number.");
 		}
 	}
 
