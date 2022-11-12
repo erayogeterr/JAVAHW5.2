@@ -2,6 +2,8 @@ package com.kodlama.io.SpringHW.webAPI.controllers;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,8 +27,9 @@ public class ProgrammingLanguageController {
 	}
 
 	@GetMapping
-	public List<ProgrammingLanguage> getAllProgrammingLanguages() {
-		return programmingLanguageService.getAllProgrammingLanguages();
+	public ResponseEntity<List<ProgrammingLanguage>> getAllProgrammingLanguages() {
+		List<ProgrammingLanguage> programmingLanguages = programmingLanguageService.getAllProgrammingLanguages();
+		return new ResponseEntity<List<ProgrammingLanguage>>(programmingLanguages,HttpStatus.OK);
 	}
 
 	@GetMapping("{id}")
