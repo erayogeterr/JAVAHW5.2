@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.kodlama.io.SpringHW.business.abstracts.ProgrammingLanguageTechnologyService;
 import com.kodlama.io.SpringHW.dataAccess.abstracts.ProgrammingLanguageTechnologyRepository;
 import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguageTechnology;
+import com.kodlama.io.SpringHW.exception.CannotBlankAndEmptyNameException;
 import com.kodlama.io.SpringHW.exception.CannotRepeatNameException;
 import com.kodlama.io.SpringHW.exception.IdNotFoundException;
 
@@ -41,7 +42,7 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	public ProgrammingLanguageTechnology saveProgrammingLanguageTechnology(
 			ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
 		if (isNameBlankAndEmpty(programmingLanguageTechnology)) {
-			throw new Exception("Programming Language Technology Cannot be Empty.");
+			throw new CannotBlankAndEmptyNameException("Programming Language Cannot be Empty.");
 		} else if (isNameExist(programmingLanguageTechnology)) {
 			throw new CannotRepeatNameException("The Programming Language Cannot Repeat.");
 		}

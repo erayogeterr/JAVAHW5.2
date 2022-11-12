@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.kodlama.io.SpringHW.business.abstracts.ProgrammingLanguageService;
 import com.kodlama.io.SpringHW.dataAccess.abstracts.ProgrammingLanguageRepository;
 import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguage;
+import com.kodlama.io.SpringHW.exception.CannotBlankAndEmptyNameException;
 import com.kodlama.io.SpringHW.exception.CannotRepeatNameException;
 import com.kodlama.io.SpringHW.exception.IdNotFoundException;
 
@@ -38,10 +39,9 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	@Override
 	public ProgrammingLanguage saveProgrammingLanguage(ProgrammingLanguage programmingLanguage) throws Exception {
 		if (isNameExist(programmingLanguage)) {
-			//throw new Exception("The Programming Language Cannot Repeat.");
 			throw new CannotRepeatNameException("The Programming Language Cannot Repeat.");
 		} else if (isNameBlankAndEmpty(programmingLanguage)) {
-			throw new Exception("Programming Language Cannot be Empty.");
+			throw new CannotBlankAndEmptyNameException("Programming Language Cannot be Empty.");
 		}
 		return programmingLanguageRepository.save(programmingLanguage);
 	}
