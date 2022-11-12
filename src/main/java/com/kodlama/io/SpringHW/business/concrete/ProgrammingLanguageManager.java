@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.kodlama.io.SpringHW.business.abstracts.ProgrammingLanguageService;
 import com.kodlama.io.SpringHW.dataAccess.abstracts.ProgrammingLanguageRepository;
 import com.kodlama.io.SpringHW.entities.concrete.ProgrammingLanguage;
+import com.kodlama.io.SpringHW.exception.IdNotFoundException;
 
 @Service
 public class ProgrammingLanguageManager implements ProgrammingLanguageService {
@@ -29,8 +30,8 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 		if (programmingLanguage.isPresent()) {
 			return programmingLanguageRepository.findById(programmingLanguageId).get();
 		} else {
-			throw new Exception("There is no programming language registered to this id number.");
-
+			//throw new Exception("There is no programming language registered to this id number.");
+			throw new IdNotFoundException("There is no programming language registered to this id number.");
 		}
 	}
 
