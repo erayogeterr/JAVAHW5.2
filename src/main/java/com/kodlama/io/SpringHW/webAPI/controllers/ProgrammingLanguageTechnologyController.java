@@ -46,11 +46,11 @@ public class ProgrammingLanguageTechnologyController {
 	}
 
 	@PutMapping("{id}")
-	public ProgrammingLanguageTechnology updateProgrammingLanguageTechnology(
+	public ResponseEntity<ProgrammingLanguageTechnology> updateProgrammingLanguageTechnology(
 			@PathVariable("id") Long programmingLanguageTechnologyId,
 			@RequestBody ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
-		return programmingLanguageTechnologyService.updateProgrammingLanguageTechnology(programmingLanguageTechnology,
-				programmingLanguageTechnologyId);
+		ProgrammingLanguageTechnology programmingLanguageTechnology2 = programmingLanguageTechnologyService.updateProgrammingLanguageTechnology(programmingLanguageTechnology, programmingLanguageTechnologyId);
+		return new ResponseEntity<ProgrammingLanguageTechnology>(programmingLanguageTechnology2,HttpStatus.OK);
 	}
 
 	@DeleteMapping("{id}")
