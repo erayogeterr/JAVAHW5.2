@@ -40,9 +40,10 @@ public class ProgrammingLanguageController {
 	}
 
 	@PostMapping
-	public ProgrammingLanguage saveProgrammingLanguage(@RequestBody ProgrammingLanguage programmingLanguage)
+	public ResponseEntity<ProgrammingLanguage> saveProgrammingLanguage(@RequestBody ProgrammingLanguage programmingLanguage)
 			throws Exception {
-		return programmingLanguageService.saveProgrammingLanguage(programmingLanguage);
+		ProgrammingLanguage programmingLanguage1 = programmingLanguageService.saveProgrammingLanguage(programmingLanguage);
+		return new ResponseEntity<ProgrammingLanguage>(programmingLanguage1,HttpStatus.CREATED);
 	}
 
 	@PutMapping("{id}")
