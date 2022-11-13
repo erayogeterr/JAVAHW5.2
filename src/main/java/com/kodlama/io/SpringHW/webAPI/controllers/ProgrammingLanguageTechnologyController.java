@@ -40,9 +40,9 @@ public class ProgrammingLanguageTechnologyController {
 	}
 
 	@PostMapping
-	public ProgrammingLanguageTechnology saveProgrammingLanguageTechnology(
-			@RequestBody ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
-		return programmingLanguageTechnologyService.saveProgrammingLanguageTechnology(programmingLanguageTechnology);
+	public ResponseEntity<ProgrammingLanguageTechnology> saveProgrammingLanguageTechnology(@RequestBody ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
+		ProgrammingLanguageTechnology programmingLanguageTechnology1 = programmingLanguageTechnologyService.saveProgrammingLanguageTechnology(programmingLanguageTechnology);
+		return new ResponseEntity<ProgrammingLanguageTechnology>(programmingLanguageTechnology1,HttpStatus.CREATED);
 	}
 
 	@PutMapping("{id}")
