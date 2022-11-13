@@ -35,22 +35,22 @@ public class ProgrammingLanguageTechnologyController {
 
 	@GetMapping("{id}")
 	public ResponseEntity<ProgrammingLanguageTechnology> getProgrammingLanguageTechnologyById(@PathVariable("id") Long programmingLanguageTechnologyId) throws Exception {
-		ProgrammingLanguageTechnology programmingLanguageTechnology = programmingLanguageTechnologyService.getProgrammingLanguageTechnologyById(programmingLanguageTechnologyId);
-		return new ResponseEntity<ProgrammingLanguageTechnology>(programmingLanguageTechnology,HttpStatus.OK);
+		ProgrammingLanguageTechnology getProgrammingLanguageTechnologyId = programmingLanguageTechnologyService.getProgrammingLanguageTechnologyById(programmingLanguageTechnologyId);
+		return new ResponseEntity<ProgrammingLanguageTechnology>(getProgrammingLanguageTechnologyId,HttpStatus.OK);
 	}
 
 	@PostMapping
 	public ResponseEntity<ProgrammingLanguageTechnology> saveProgrammingLanguageTechnology(@RequestBody ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
-		ProgrammingLanguageTechnology programmingLanguageTechnology1 = programmingLanguageTechnologyService.saveProgrammingLanguageTechnology(programmingLanguageTechnology);
-		return new ResponseEntity<ProgrammingLanguageTechnology>(programmingLanguageTechnology1,HttpStatus.CREATED);
+		ProgrammingLanguageTechnology saveProgrammingLanguageTechnology = programmingLanguageTechnologyService.saveProgrammingLanguageTechnology(programmingLanguageTechnology);
+		return new ResponseEntity<ProgrammingLanguageTechnology>(saveProgrammingLanguageTechnology,HttpStatus.CREATED);
 	}
 
 	@PutMapping("{id}")
 	public ResponseEntity<ProgrammingLanguageTechnology> updateProgrammingLanguageTechnology(
 			@PathVariable("id") Long programmingLanguageTechnologyId,
 			@RequestBody ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
-		ProgrammingLanguageTechnology programmingLanguageTechnology2 = programmingLanguageTechnologyService.updateProgrammingLanguageTechnology(programmingLanguageTechnology, programmingLanguageTechnologyId);
-		return new ResponseEntity<ProgrammingLanguageTechnology>(programmingLanguageTechnology2,HttpStatus.OK);
+		ProgrammingLanguageTechnology updateProgrammingLanguageTechnology = programmingLanguageTechnologyService.updateProgrammingLanguageTechnology(programmingLanguageTechnology, programmingLanguageTechnologyId);
+		return new ResponseEntity<ProgrammingLanguageTechnology>(updateProgrammingLanguageTechnology,HttpStatus.OK);
 	}
 
 	@DeleteMapping("{id}")

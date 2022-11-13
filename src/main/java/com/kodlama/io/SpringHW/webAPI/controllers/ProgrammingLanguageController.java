@@ -35,22 +35,22 @@ public class ProgrammingLanguageController {
 	@GetMapping("{id}")
 	public ResponseEntity<ProgrammingLanguage> getProgrammingLanguageById(@PathVariable("id") Long programmingLanguageId)
 			throws Exception {
-		ProgrammingLanguage programmingLanguage = programmingLanguageService.getProgrammingLanguageById(programmingLanguageId);
-		return new ResponseEntity<ProgrammingLanguage>(programmingLanguage,HttpStatus.OK);
+		ProgrammingLanguage getProgrammingLanguageId = programmingLanguageService.getProgrammingLanguageById(programmingLanguageId);
+		return new ResponseEntity<ProgrammingLanguage>(getProgrammingLanguageId,HttpStatus.OK);
 	}
 
 	@PostMapping
 	public ResponseEntity<ProgrammingLanguage> saveProgrammingLanguage(@RequestBody ProgrammingLanguage programmingLanguage)
 			throws Exception {
-		ProgrammingLanguage programmingLanguage1 = programmingLanguageService.saveProgrammingLanguage(programmingLanguage);
-		return new ResponseEntity<ProgrammingLanguage>(programmingLanguage1,HttpStatus.CREATED);
+		ProgrammingLanguage saveProgrammingLanguage = programmingLanguageService.saveProgrammingLanguage(programmingLanguage);
+		return new ResponseEntity<ProgrammingLanguage>(saveProgrammingLanguage,HttpStatus.CREATED);
 	}
 
 	@PutMapping("{id}")
 	public ResponseEntity<ProgrammingLanguage> updateProgrammingLanguage(@PathVariable("id") Long programmingLanguageId,
 			@RequestBody ProgrammingLanguage programmingLanguage) throws Exception {
-		ProgrammingLanguage programmingLanguage2 = programmingLanguageService.updateProgrammingLanguage(programmingLanguage, programmingLanguageId);
-		return new ResponseEntity<ProgrammingLanguage>(programmingLanguage2,HttpStatus.OK);
+		ProgrammingLanguage updateProgrammingLanguage = programmingLanguageService.updateProgrammingLanguage(programmingLanguage, programmingLanguageId);
+		return new ResponseEntity<ProgrammingLanguage>(updateProgrammingLanguage,HttpStatus.OK);
 	}
 
 	@DeleteMapping("{id}")
