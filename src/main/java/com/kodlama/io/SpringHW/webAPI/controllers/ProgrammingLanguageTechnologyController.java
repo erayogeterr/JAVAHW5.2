@@ -34,10 +34,9 @@ public class ProgrammingLanguageTechnologyController {
 	}
 
 	@GetMapping("{id}")
-	public ProgrammingLanguageTechnology getProgrammingLanguageTechnologyById(
-			@PathVariable("id") Long programmingLanguageTechnologyId) throws Exception {
-		return programmingLanguageTechnologyService
-				.getProgrammingLanguageTechnologyById(programmingLanguageTechnologyId);
+	public ResponseEntity<ProgrammingLanguageTechnology> getProgrammingLanguageTechnologyById(@PathVariable("id") Long programmingLanguageTechnologyId) throws Exception {
+		ProgrammingLanguageTechnology programmingLanguageTechnology = programmingLanguageTechnologyService.getProgrammingLanguageTechnologyById(programmingLanguageTechnologyId);
+		return new ResponseEntity<ProgrammingLanguageTechnology>(programmingLanguageTechnology,HttpStatus.OK);
 	}
 
 	@PostMapping
