@@ -47,9 +47,10 @@ public class ProgrammingLanguageController {
 	}
 
 	@PutMapping("{id}")
-	public ProgrammingLanguage updateProgrammingLanguage(@PathVariable("id") Long programmingLanguageId,
+	public ResponseEntity<ProgrammingLanguage> updateProgrammingLanguage(@PathVariable("id") Long programmingLanguageId,
 			@RequestBody ProgrammingLanguage programmingLanguage) throws Exception {
-		return programmingLanguageService.updateProgrammingLanguage(programmingLanguage, programmingLanguageId);
+		ProgrammingLanguage programmingLanguage2 = programmingLanguageService.updateProgrammingLanguage(programmingLanguage, programmingLanguageId);
+		return new ResponseEntity<ProgrammingLanguage>(programmingLanguage2,HttpStatus.OK);
 	}
 
 	@DeleteMapping("{id}")
