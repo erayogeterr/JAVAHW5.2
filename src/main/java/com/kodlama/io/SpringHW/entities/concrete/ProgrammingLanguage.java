@@ -39,4 +39,5 @@ public class ProgrammingLanguage {
 	@JsonIgnore
 	@OneToMany(mappedBy = "programmingLanguage", cascade = CascadeType.ALL)
 	private List<ProgrammingLanguageTechnology> technologies;
+	
 }

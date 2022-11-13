@@ -33,9 +33,10 @@ public class ProgrammingLanguageController {
 	}
 
 	@GetMapping("{id}")
-	public ProgrammingLanguage getProgrammingLanguageById(@PathVariable("id") Long programmingLanguageId)
+	public ResponseEntity<ProgrammingLanguage> getProgrammingLanguageById(@PathVariable("id") Long programmingLanguageId)
 			throws Exception {
-		return programmingLanguageService.getProgrammingLanguageById(programmingLanguageId);
+		ProgrammingLanguage programmingLanguage = programmingLanguageService.getProgrammingLanguageById(programmingLanguageId);
+		return new ResponseEntity<ProgrammingLanguage>(programmingLanguage,HttpStatus.OK);
 	}
 
 	@PostMapping
