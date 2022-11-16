@@ -32,16 +32,16 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 		if (programmingLanguage.isPresent()) {
 			return programmingLanguageRepository.findById(programmingLanguageId).get();
 		} else {
-			throw new IdNotFoundException("There is no programming language registered to this id number.");
+			throw new IdNotFoundException();
 		}
 	}
 
 	@Override
 	public ProgrammingLanguage saveProgrammingLanguage(ProgrammingLanguage programmingLanguage) throws Exception {
 		if (isNameExist(programmingLanguage)) {
-			throw new CannotRepeatNameException("The Programming Language Cannot Repeat.");
+			throw new CannotRepeatNameException();
 		} else if (isNameBlankAndEmpty(programmingLanguage)) {
-			throw new CannotBlankAndEmptyNameException("Programming Language Cannot be Empty.");
+			throw new CannotBlankAndEmptyNameException();
 		}
 		return programmingLanguageRepository.save(programmingLanguage);
 	}
@@ -58,7 +58,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 			programmingLanguageRepository.save(toUpdate);
 			return toUpdate;
 		} else {
-			throw new IdNotFoundException("There is no programming language registered to this id number.");
+			throw new IdNotFoundException();
 		}
 	}
 
@@ -68,7 +68,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 		if (programmingLanguage.isPresent()) {
 			programmingLanguageRepository.deleteById(programmingLanguageId);
 		} else { 
-			throw new IdNotFoundException("There is no programming language registered to this id number.");
+			throw new IdNotFoundException();
 		}
 	}
 
