@@ -54,8 +54,9 @@ public class ProgrammingLanguageController {
 	}
 
 	@DeleteMapping("{id}")
-	public void deleteProgrammingLanguage(@PathVariable("id") Long programmingLanguageId) throws Exception {
+	public ResponseEntity<String> deleteProgrammingLanguage(@PathVariable("id") Long programmingLanguageId) throws Exception {
 		programmingLanguageService.deleteProgrammingLanguage(programmingLanguageId);
+		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 
 }

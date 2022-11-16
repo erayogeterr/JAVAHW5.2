@@ -1,6 +1,5 @@
 package com.kodlama.io.SpringHW.business.responses;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,11 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetAllProgrammingLanguageTechnologyResponse {
-	
+
 	private Long id;
 	private String name;
-	
 
-	
-	
 }
