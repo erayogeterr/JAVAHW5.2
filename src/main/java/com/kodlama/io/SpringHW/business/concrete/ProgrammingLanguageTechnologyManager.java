@@ -39,8 +39,7 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	}
 
 	@Override
-	public ProgrammingLanguageTechnology saveProgrammingLanguageTechnology(
-			ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
+	public ProgrammingLanguageTechnology saveProgrammingLanguageTechnology(ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
 		if (isNameBlankAndEmpty(programmingLanguageTechnology)) {
 			throw new CannotBlankAndEmptyNameException();
 		} else if (isNameExist(programmingLanguageTechnology)) {
