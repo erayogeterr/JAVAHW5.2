@@ -34,7 +34,7 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 		if (programmingLanguageTechnology.isPresent()) {
 			return programmingLanguageTechnologyRepository.findById(programmingLanguageTechnologyId).get();
 		} else {
-			throw new IdNotFoundException("There is no programming language registered to this id number.");
+			throw new IdNotFoundException();
 		}
 	}
 
@@ -42,9 +42,9 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	public ProgrammingLanguageTechnology saveProgrammingLanguageTechnology(
 			ProgrammingLanguageTechnology programmingLanguageTechnology) throws Exception {
 		if (isNameBlankAndEmpty(programmingLanguageTechnology)) {
-			throw new CannotBlankAndEmptyNameException("Programming Language Cannot be Empty.");
+			throw new CannotBlankAndEmptyNameException();
 		} else if (isNameExist(programmingLanguageTechnology)) {
-			throw new CannotRepeatNameException("The Programming Language Cannot Repeat.");
+			throw new CannotRepeatNameException();
 		}
 		return programmingLanguageTechnologyRepository.save(programmingLanguageTechnology);
 	}
@@ -62,7 +62,7 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 			return toUpdate;
 		}
 		else {
-			throw new IdNotFoundException("There is no programming language registered to this id number.");
+			throw new IdNotFoundException();
 		}
 	}
 
@@ -72,7 +72,7 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 		if (programmingLanguage.isPresent()) {
 			programmingLanguageTechnologyRepository.deleteById(programmingLanguageTechnologyId);
 		} else { 
-			throw new IdNotFoundException("There is no programming language registered to this id number.");
+			throw new IdNotFoundException();
 		}
 	}
 
